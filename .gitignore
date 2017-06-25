@@ -1,5 +1,9 @@
 # Image files
 *.jpg
+*.jpeg
+*.gif
+*.bmp
+*.png
 
 # Windows desktop files
 *.ini
