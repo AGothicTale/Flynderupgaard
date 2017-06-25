@@ -1,27 +1,29 @@
 ----- Install processing -----
 curl https://processing.org/download/install-arm.sh | sudo sh
 
+
 ----- execstack stack guard issue -----
 https://stackoverflow.com/questions/22345891/stack-guard-might-have-disabled
 sudo apt-get install execstack -y --force-yes
 sudo execstack -c /home/pi/Flynderup/application.linux64/lib/libjSSC-2.8.so
 
+
 ----- Autostart sketch on boot -----
 in terminal	sudo nano /home/pi/.config/lxsession/LXDE-pi
-add line	@sh /home/pi/Flynderup/run_app.sh
+add line	@sh /home/pi/Flynderup/run_sketch.sh
 save and exit	Ctrl+X  Y  Enter
 
-in terminal	sudo nano /home/pi/Flynderup/run_app.sh
+in terminal	sudo nano /home/pi/Flynderup/run_sketch.sh
 add lines	#!/usr/bin/sh
-		/home/pi/Flynderup/application.linux64/Flynderup
+		processing-java --sketch=/home/pi/Flynderup --run
 		sleep 10
 
-export sketch in processing to linux.
 
 ----- Rotate display -----
 in terminal	sudo nano /boot/config.txt
 add line: 	display_rotate=1 				(0,1,2,3 = 0,90,180,270)
 save and exit	Ctrl+X  Y  Enter
+
 
 ----- Change Resolution -----
 in terminal 	sudo nano /boot/config.txt
