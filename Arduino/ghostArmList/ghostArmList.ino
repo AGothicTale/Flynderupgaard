@@ -84,23 +84,13 @@ void setup() {
 
 void loop()
 {
-
- 
-  
     // convert the time into a distance
     cm = lowRead();
-    //Serial.println(cm);
-    while (cm >= shortTrig && cm < longTrig) {
+    
+    if (cm < longTrig) {
       point();
-      //Serial.print("Point.");
-      // convert the time into a distance
-      cm = lowRead();
-    }
-    if (cm < shortTrig) {
-      //Serial.print("ghostON.");
+      delay(3000);
       ghostON();
-
-
     }
     else {
       Serial.write("sleep.");
@@ -108,7 +98,32 @@ void loop()
     }
 }
 
-
+// Loop with short trig
+//void loop()
+//{
+//
+// 
+//  
+//    // convert the time into a distance
+//    cm = lowRead();
+//    //Serial.println(cm);
+//    while (cm >= shortTrig && cm < longTrig) {
+//      point();
+//      //Serial.print("Point.");
+//      // convert the time into a distance
+//      cm = lowRead();
+//    }
+//    if (cm < shortTrig) {
+//      //Serial.print("ghostON.");
+//      ghostON();
+//
+//
+//    }
+//    else {
+//      Serial.write("sleep.");
+//      sleep();
+//    }
+//}
 
 
 
